@@ -47,11 +47,10 @@ function load_btn() {　//次の十件読み込みのfunction
 
     for (var i = 0; i < 10; i++) {
 
-      res　+=　'<div id='+shop_data.results.shop[cnt+i].id+' class="hot_contents" onclick="set_shop_id(this);"><h4 class="hot_name">'
-      +shop_data.results.shop[cnt+i].name+'</h4><img src='+shop_data.results.shop[cnt+i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
-      +shop_data.results.shop[cnt+i].genre.name+' / <img src="img/yen.png">'
-      +shop_data.results.shop[cnt+i].budget.average+'</h4><h4 class="hot_name">'
-      +shop_data.results.shop[cnt+i].catch+'</h4></div>';
+      res　+=　'<div id='+shop_data.results.shop[cnt+i].id+' class="hot_contents" onclick="set_shop_id(this);"><img src='
+      +shop_data.results.shop[cnt+i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
+      +shop_data.results.shop[cnt+i].name+'</h4><h4 class="hot_name">'+shop_data.results.shop[cnt+i].genre.name+'</h4><h4 class="hot_name">'
+      +shop_data.results.shop[cnt+i].catch+'</h4><h4 class="hot_name">予算平均：'+shop_data.results.shop[cnt+i].budget.average+'</h4></div>';
     }
      $(".list_btn").remove();
     cnt += 10;
@@ -72,21 +71,19 @@ function last_list() { //最後のリスト表示function
   res = "";
   if (cnt == 0) { //初めから周辺のshopが十件以下の場合
     for (var i = 0; i < leg%10; i++) {
-      res　+=　'<div id='+shop_data.results.shop[cnt+i].id+' class="hot_contents" onclick="set_shop_id(this);"><h4 class="hot_name">'
-      +shop_data.results.shop[cnt+i].name+'</h4><img src='+shop_data.results.shop[cnt+i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
-      +shop_data.results.shop[cnt+i].genre.name+' / </h4><h4 class="hot_name"><img src="img/yen.png">'
-      +shop_data.results.shop[cnt+i].budget.average+'</h4><h4 class="hot_name">'
-      +shop_data.results.shop[cnt+i].catch+'</h4></div>';
+      res += '<div id='+shop_data.results.shop[cnt+i].id+' class="hot_contents" onclick="set_shop_id(this);"><img src='
+      +shop_data.results.shop[cnt+i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
+      +shop_data.results.shop[cnt+i].name+'</h4><h4 class="hot_name">'+shop_data.results.shop[cnt+i].genre.name+'</h4><h4 class="hot_name">'
+      +shop_data.results.shop[cnt+i].catch+'</h4><h4 class="hot_name">予算平均：'+shop_data.results.shop[cnt+i].budget.average+'</h4></div>';
     }
     $('.hot_list').after(res);
     console.log("成功3");
   }else { //以上の場合
   for (var i = 0; i < leg%10; i++) {
-    res　+=　'<div id='+shop_data.results.shop[cnt+i].id+' class="hot_contents" onclick="set_shop_id(this);"><h4 class="hot_name">'
-    +shop_data.results.shop[cnt+i].name+'</h4><img src='+shop_data.results.shop[cnt+i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
-    +shop_data.results.shop[cnt+i].genre.name+' / <img src="img/yen.png">'
-    +shop_data.results.shop[cnt+i].budget.average+'</h4><h4 class="hot_name">'
-    +shop_data.results.shop[cnt+i].catch+'</h4></div>';
+    res += '<div id='+shop_data.results.shop[cnt+i].id+' class="hot_contents" onclick="set_shop_id(this);"><img src='
+    +shop_data.results.shop[cnt+i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
+    +shop_data.results.shop[cnt+i].name+'</h4><h4 class="hot_name">'+shop_data.results.shop[cnt+i].genre.name+'</h4><h4 class="hot_name">'
+    +shop_data.results.shop[cnt+i].catch+'</h4><h4 class="hot_name">予算平均：'+shop_data.results.shop[cnt+i].budget.average+'</h4></div>';
   }
   $(".list_btn").remove();
   $('.hot_contents').filter(":last").after(res);
@@ -189,11 +186,10 @@ function set_shop_id(ele) {
               console.log(data.results.shop.length);
               res = "";
               for (i = 0; i <10; i++) {
-                res　+=　'<div id='+shop_data.results.shop[cnt+i].id+' class="hot_contents" onclick="set_shop_id(this);"><h4 class="hot_name">'
-                +shop_data.results.shop[cnt+i].name+'</h4><img src='+shop_data.results.shop[cnt+i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
-                +shop_data.results.shop[cnt+i].genre.name+' / <img src="img/yen.png">'
-                +shop_data.results.shop[cnt+i].budget.average+'</h4><h4 class="hot_name">'
-                +shop_data.results.shop[cnt+i].catch+'</h4></div>';
+                res += '<div id='+data.results.shop[i].id+' class="hot_contents" onclick="set_shop_id(this);"><img src='
+                +data.results.shop[i].photo.mobile.l+' class="img-rounded" alt="" width="" height="" border="0" /><h4 class="hot_name">'
+                +data.results.shop[i].name+'</h4><h4 class="hot_name">'+data.results.shop[i].genre.name+'</h4><h4 class="hot_name">'
+                +data.results.shop[i].catch+'</h4><h4 class="hot_name">予算平均：'+data.results.shop[i].budget.average+'</h4></div>';
               }
               console.log("成功01");
               cnt += 10;
